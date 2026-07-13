@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeSphere - Seu Portal de Animes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Anime<span>Sphere</span></h1>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Pesquisar anime...">
+                <button id="search-button">Buscar</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 id="section-title">Animes em Alta</h2>
+        <div id="anime-grid" class="anime-grid">
+            <!-- Os animes serão carregados aqui via JavaScript -->
+            <div class="loading">Carregando animes...</div>
+        </div>
+        <div class="pagination">
+            <button id="prev-btn" disabled>Anterior</button>
+            <span id="page-number">Página 1</span>
+            <button id="next-btn">Próxima</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AnimeSphere. Dados fornecidos por <a href="https://jikan.moe" target="_blank">Jikan API</a>.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
