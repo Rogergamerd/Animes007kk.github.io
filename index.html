@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animes007kk - Seu Portal de Animes</title>
+    <title>Animes007kk - Portal de Animes | Assistir Online</title>
+    <meta name="description" content="Portal completo de animes com episódios, sinopses, avaliações e comunidade. Descubra e assista seus animes favoritos!">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-play-circle"></i> Animes007kk
+                <i class="fas fa-play-circle"></i>
+                <span>Animes007kk</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home" class="active">Início</a></li>
-                <li><a href="#trending">Tendências</a></li>
-                <li><a href="#categories">Categorias</a></li>
-                <li><a href="#favorites">Favoritos</a></li>
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#trending" class="nav-link">Lançamentos</a></li>
+                <li><a href="#best-rated" class="nav-link">Melhores</a></li>
+                <li><a href="#categories" class="nav-link">Gêneros</a></li>
+                <li><a href="#favorites" class="nav-link">Biblioteca</a></li>
             </ul>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Buscar anime...">
-                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar anime..." class="search-input">
+                    <button id="searchBtn" class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -34,18 +39,70 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-background" id="heroBg"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Bem-vindo ao Animes007kk</h1>
-            <p>Seu destino para descobrir os melhores animes do momento</p>
-            <button class="btn-primary" onclick="scrollToTrending()">Explorar Agora</button>
+            <p>Descubra e assista os melhores animes da temporada</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('trending')">
+                    <i class="fas fa-play"></i> Assistir Agora
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('categories')">
+                    <i class="fas fa-list"></i> Explorar Categorias
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-bar">
+        <div class="container">
+            <div class="info-item">
+                <i class="fas fa-star"></i>
+                <div>
+                    <h4>Série Mais Bem Avaliada</h4>
+                    <p>Attack on Titan - 4.9/5.0</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-fire"></i>
+                <div>
+                    <h4>Tendência Atual</h4>
+                    <p>Jujutsu Kaisen - Em Alta</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-users"></i>
+                <div>
+                    <h4>Comunidade</h4>
+                    <p>+1000 Fãs Ativos</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Trending Section -->
     <section class="trending" id="trending">
         <div class="container">
-            <h2>🔥 Tendências Agora</h2>
+            <div class="section-header">
+                <h2><span class="icon-fire">🔥</span> Lançamentos da Semana</h2>
+                <p class="section-subtitle">Os animes mais recentes e esperados</p>
+            </div>
             <div class="anime-grid" id="trendingGrid">
+                <!-- Preenchido por JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Rated Section -->
+    <section class="best-rated" id="best-rated">
+        <div class="container">
+            <div class="section-header">
+                <h2><span class="icon-star">⭐</span> Melhores Avaliados</h2>
+                <p class="section-subtitle">Os animes mais bem avaliados da plataforma</p>
+            </div>
+            <div class="anime-grid" id="bestRatedGrid">
                 <!-- Preenchido por JavaScript -->
             </div>
         </div>
@@ -54,31 +111,52 @@
     <!-- Categories Section -->
     <section class="categories" id="categories">
         <div class="container">
-            <h2>📚 Categorias</h2>
+            <div class="section-header">
+                <h2><span class="icon-category">📚</span> Gêneros</h2>
+                <p class="section-subtitle">Encontre animes por categoria</p>
+            </div>
             <div class="categories-grid">
                 <div class="category-card" data-category="Ação">
-                    <i class="fas fa-fist-raised"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
                     <h3>Ação</h3>
+                    <p class="category-count">5 animes</p>
                 </div>
                 <div class="category-card" data-category="Romance">
-                    <i class="fas fa-heart"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <h3>Romance</h3>
+                    <p class="category-count">2 animes</p>
                 </div>
                 <div class="category-card" data-category="Comédia">
-                    <i class="fas fa-laugh"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-laugh"></i>
+                    </div>
                     <h3>Comédia</h3>
+                    <p class="category-count">1 anime</p>
                 </div>
                 <div class="category-card" data-category="Ficção Científica">
-                    <i class="fas fa-rocket"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
                     <h3>Ficção Científica</h3>
+                    <p class="category-count">3 animes</p>
                 </div>
                 <div class="category-card" data-category="Terror">
-                    <i class="fas fa-ghost"></i>
-                    <h3>Terror</h3>
+                    <div class="category-icon">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <h3>Horror</h3>
+                    <p class="category-count">2 animes</p>
                 </div>
                 <div class="category-card" data-category="Fantasia">
-                    <i class="fas fa-wand-magic-sparkles"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
                     <h3>Fantasia</h3>
+                    <p class="category-count">4 animes</p>
                 </div>
             </div>
         </div>
@@ -87,9 +165,30 @@
     <!-- Favorites Section -->
     <section class="favorites" id="favorites">
         <div class="container">
-            <h2>⭐ Meus Favoritos</h2>
+            <div class="section-header">
+                <h2><span class="icon-heart">❤️</span> Minha Biblioteca</h2>
+                <p class="section-subtitle">Seus animes salvos para assistir depois</p>
+            </div>
             <div class="anime-grid" id="favoritesGrid">
-                <p class="empty-message">Nenhum favorito adicionado ainda. Clique no ❤️ para adicionar!</p>
+                <div class="empty-state">
+                    <i class="fas fa-bookmark"></i>
+                    <p>Nenhum anime adicionado à biblioteca</p>
+                    <small>Clique no coração para adicionar animes favoritos</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Não perca nenhum lançamento!</h2>
+                <p>Receba notificações sobre novos animes e lançamentos</p>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="seu@email.com" required>
+                    <button type="submit" class="btn btn-primary">Inscrever</button>
+                </form>
             </div>
         </div>
     </section>
@@ -97,20 +196,61 @@
     <!-- Modal de Detalhes -->
     <div class="modal" id="animeModal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <button class="modal-close" id="modalClose">&times;</button>
             <div class="modal-body">
                 <div class="modal-image">
                     <img id="modalImage" src="" alt="">
+                    <div class="modal-badge" id="modalBadge"></div>
                 </div>
                 <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <p><strong>Gênero:</strong> <span id="modalGenre"></span></p>
-                    <p><strong>Ano:</strong> <span id="modalYear"></span></p>
-                    <p><strong>Episódios:</strong> <span id="modalEpisodes"></span></p>
-                    <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-                    <p><strong>Sinopse:</strong></p>
-                    <p id="modalDescription"></p>
-                    <button class="btn-secondary" id="modalFavoriteBtn" onclick="toggleFavorite()">❤️ Adicionar aos Favoritos</button>
+                    <h1 id="modalTitle"></h1>
+                    <div class="modal-meta">
+                        <span class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="modalYear"></span>
+                        </span>
+                        <span class="meta-item">
+                            <i class="fas fa-list"></i>
+                            <span id="modalEpisodes"></span> eps
+                        </span>
+                        <span class="meta-item">
+                            <i class="fas fa-play-circle"></i>
+                            <span id="modalStatus"></span>
+                        </span>
+                    </div>
+                    
+                    <div class="rating-box">
+                        <div class="stars" id="modalStars"></div>
+                        <span class="rating-value" id="modalRating"></span>
+                    </div>
+
+                    <div class="genres-box">
+                        <h3>Gêneros</h3>
+                        <div class="genres" id="modalGenres"></div>
+                    </div>
+
+                    <div class="synopsis">
+                        <h3>Sinopse</h3>
+                        <p id="modalDescription"></p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary btn-lg" id="watchBtn">
+                            <i class="fas fa-play"></i> Assistir Agora
+                        </button>
+                        <button class="btn btn-favorite btn-lg" id="favoriteBtn" onclick="toggleFavorite()">
+                            <i class="fas fa-heart"></i> <span id="favoriteBtnText">Adicionar aos Favoritos</span>
+                        </button>
+                    </div>
+
+                    <div class="additional-info">
+                        <div class="info-box">
+                            <h4>Popularidade</h4>
+                            <div class="progress-bar">
+                                <div class="progress" id="modalPopularity"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,15 +259,54 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Animes007kk - Todos os direitos reservados | Criado com ❤️</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Animes007kk</h3>
+                    <p>Portal completo e gratuito para descobrir e assistir animes. Sua biblioteca pessoal de animes favoritos.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="#trending">Lançamentos</a></li>
+                        <li><a href="#best-rated">Melhores</a></li>
+                        <li><a href="#categories">Gêneros</a></li>
+                        <li><a href="#favorites">Biblioteca</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informações</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Estatísticas</h3>
+                    <ul>
+                        <li><strong id="totalAnimes">12</strong> Animes</li>
+                        <li><strong id="totalEpisodes">0</strong> Episódios</li>
+                        <li><strong id="totalHours">0</strong> Horas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Animes007kk. Todos os direitos reservados | Desenvolvido com <i class="fas fa-heart"></i> por Copilot</p>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
